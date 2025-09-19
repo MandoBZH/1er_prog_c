@@ -1,14 +1,16 @@
 #include <stdio.h>
 
+#define MAX_DEG 36
+
 int main() {
     int kts = 150;
     int ft = 350;
-    int hdg = 25;
+    int hdg = 25 %MAX_DEG;
 
-    int hdg1 = (hdg - 2 + 360) % 360;
-    int hdg2 = (hdg - 1 + 360) % 360;
-    int hdg3 = (hdg + 1) % 360;
-    int hdg4 = (hdg + 2) % 360;
+    int hdg1 = (hdg - 2 + MAX_DEG) % MAX_DEG;
+    int hdg2 = (hdg - 1 + MAX_DEG) % MAX_DEG;
+    int hdg3 = (hdg + 1) % MAX_DEG;
+    int hdg4 = (hdg + 2) % MAX_DEG;
 
 
 
@@ -19,7 +21,7 @@ int main() {
     printf("                                                                       ____\n");
     printf("                            .     V     .                   __3000    |6-  \n");
     printf("__________             .          A          .              |    |    | -  \n");
-    printf("       |          .   _________________________   .         |   -|    |2-  \n");
+    printf("       |           .  _________________________  .          |   -|    |2-  \n");
     printf(" %03d  -|                         ---                        |    |    | -  \n",kts+40);
     printf("       |                        -----                      >|%03d-|    |1-  \n",ft+10);
     printf(" %03d  -|                         ---                        |    |    |    \n",kts+30);
@@ -28,7 +30,7 @@ int main() {
     printf("       |                        -----                      >|%03d-|__  |    \n",ft+5);
     printf(" %03d  -|                         ---                        |____|20| |    \n",kts+10);
     printf("-   ---|<        =======----------+----------=======    ----  %03d 00| |--  \n",ft);
-    printf(" %03d  -|                         ---                        |    |00| |    \n",kts-10);
+    printf(" %03d  -|                         ---                        |    |80| |    \n",kts-10);
     printf("       |                        -----                      >|%03d-|    |    \n",ft-5);
     printf(" %03d  -|                         ---                        |    |    | -  \n",kts-20);
     printf("       |                  10 ----------- 10                 |   -|    |    \n");
@@ -36,7 +38,7 @@ int main() {
     printf("       |                        -----                      >|%03d-|    |1-  \n",ft-10);
     printf(" %03d  -|                  20 ----------- 20                 |    |    | -  \n",kts-40);
     printf("_______|__           ___________________________            |   -|    |2-  \n");
-    printf("                                 %3d                       _|____|    | -  \n",ft);
+    printf("                                 %03d                       _|____|    | -  \n",ft);
     printf("                                                                     _|6-__\n");
     printf("              ____________________|____________________                    \n");
     printf("             |   '   |   '   |   '   |   '   |   '   | |     QNH 1013      \n");
